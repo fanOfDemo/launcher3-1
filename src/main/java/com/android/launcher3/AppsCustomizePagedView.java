@@ -1160,15 +1160,6 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
             int ix = i % mWidgetCountX;
             int iy = i / mWidgetCountX;
 
-            if (ix > 0) {
-                View border = widget.findViewById(R.id.left_border);
-                border.setVisibility(View.VISIBLE);
-            }
-            if (ix < mWidgetCountX - 1) {
-                View border = widget.findViewById(R.id.right_border);
-                border.setVisibility(View.VISIBLE);
-            }
-
             GridLayout.LayoutParams lp = new GridLayout.LayoutParams(
                     GridLayout.spec(iy, GridLayout.START),
                     GridLayout.spec(ix, GridLayout.TOP));

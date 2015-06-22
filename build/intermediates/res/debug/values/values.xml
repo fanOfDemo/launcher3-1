@@ -26,6 +26,7 @@
     <color name="primary_light">#ff3949AB</color>
     <color name="quantum_panel_text_color">#FF666666</color>
     <color name="quantum_panel_text_shadow_color">#FFC4C4C4</color>
+    <color name="transparent">#00000000</color>
     <color name="wallpaper_picker_translucent_gray">#66000000</color>
     <color name="widget_text_panel">#FF374248</color>
     <color name="workspace_icon_text_color">#FFF</color>
@@ -139,160 +140,176 @@
         <item quantity="one">%1$d selected</item>
         <item quantity="other">%1$d selected</item>
     </plurals>
-    <string name="abandoned_clean_all">Remove All</string>
-    <string name="abandoned_clean_this">Remove</string>
-    <string name="abandoned_promise_explanation">The app for this icon isn\'t installed.
+    <string name="abandoned_clean_all" translatable="false">Remove All</string>
+    <string name="abandoned_clean_this" translatable="false">Remove</string>
+    <string name="abandoned_promise_explanation" translatable="false">The app for this icon isn\'t installed.
         You can remove it, or search for the app and install it manually.
     </string>
-    <string name="abandoned_promises_title">This app is not installed</string>
-    <string name="abandoned_search">Search</string>
-    <string name="accessibility_all_apps_button">Apps</string>
-    <string name="accessibility_delete_button">Remove</string>
-    <string name="activity_not_available">App isn\'t available</string>
-    <string name="activity_not_found">App isn\'t installed.</string>
-    <string name="all_apps_button_label">Apps</string>
-    <string name="all_apps_home_button_label">Home</string>
-    <string name="announce_selection">Selected <ns1:g example="Wallpaper 3 of 10" id="label">%1$s</ns1:g></string>
+    <string name="abandoned_promises_title" translatable="false">This app is not installed</string>
+    <string name="abandoned_search" translatable="false">Search</string>
+    <string name="accessibility_all_apps_button" translatable="false">Apps</string>
+    <string name="accessibility_delete_button" translatable="false">Remove</string>
+    <string name="activity_not_available" translatable="false">App isn\'t available</string>
+    <string name="activity_not_found" translatable="false">App isn\'t installed.</string>
+    <string name="all_apps_button_label" translatable="false">Apps</string>
+    <string name="all_apps_home_button_label" translatable="false">Home</string>
+    <string name="announce_selection" translatable="false">Selected <ns1:g example="Wallpaper 3 of 10" id="label">%1$s</ns1:g></string>
     <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values/config.xml -->
     <eat-comment/>
     <string name="app_filter_class" translatable="false"/>
     <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="application_name">Launcher3</string>
-    <string name="apps_customize_apps_scroll_format">Apps page %1$d of %2$d</string>
-    <string name="apps_customize_widgets_scroll_format">Widgets page %1$d of %2$d</string>
+    <string name="application_name" translatable="false">Launcher3</string>
+    <string name="apps_customize_apps_scroll_format" translatable="false">Apps page %1$d of %2$d</string>
+    <string name="apps_customize_widgets_scroll_format" translatable="false">Widgets page %1$d of %2$d</string>
     <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values/config.xml -->
     <eat-comment/>
     <string name="build_info_class" translatable="false"/>
     <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="cab_app_selection_text">1 app selected</string>
-    <string name="cab_folder_selection_text">1 folder selected</string>
-    <string name="cab_menu_app_info">App details</string>
-    <string name="cab_menu_delete_app">Uninstall app</string>
-    <string name="cab_shortcut_selection_text">1 shortcut selected</string>
-    <string name="cab_widget_selection_text">1 widget selected</string>
-    <string name="cancel_action">Cancel</string>
-    <string name="cling_dismiss">OK</string>
-    <string name="completely_out_of_space">No more room on your Home screens.</string>
-    <string name="crop_wallpaper">Crop wallpaper</string>
-    <string name="debug_memory_activity">* HPROF</string>
-    <string name="default_scroll_format">Page %1$d of %2$d</string>
-    <string name="delete_target_label">Remove</string>
-    <string name="delete_target_uninstall_label">Uninstall</string>
-    <string name="delete_zone_label_all_apps">Uninstall</string>
-    <string name="delete_zone_label_all_apps_system_app">Uninstall update</string>
-    <string name="delete_zone_label_workspace">Remove</string>
-    <string name="dream_name">Rocket Launcher</string>
-    <string name="dummy_custom_cling_error_message">Error: custom workspace layout passed in but custom cling was not overwritten</string>
-    <string name="external_drop_widget_error">Couldn\'t drop item on this Home screen.</string>
+    <string name="cab_app_selection_text" translatable="false">1 app selected</string>
+    <string name="cab_folder_selection_text" translatable="false">1 folder selected</string>
+    <string name="cab_menu_app_info" translatable="false">App details</string>
+    <string name="cab_menu_delete_app" translatable="false">Uninstall app</string>
+    <string name="cab_shortcut_selection_text" translatable="false">1 shortcut selected</string>
+    <string name="cab_widget_selection_text" translatable="false">1 widget selected</string>
+    <string name="cancel_action" translatable="false">Cancel</string>
+    <string name="cling_dismiss" translatable="false">OK</string>
+    <string name="completely_out_of_space" translatable="false">No more room on your Home screens.</string>
+    <string name="crop_wallpaper" translatable="false">Crop wallpaper</string>
+    <string name="debug_memory_activity" translatable="false">* HPROF</string>
+    <string name="default_scroll_format" translatable="false">Page %1$d of %2$d</string>
+    <string name="delete_target_label" translatable="false">Remove</string>
+    <string name="delete_target_uninstall_label" translatable="false">Uninstall</string>
+    <string name="delete_zone_label_all_apps" translatable="false">Uninstall</string>
+    <string name="delete_zone_label_all_apps_system_app" translatable="false">Uninstall update</string>
+    <string name="delete_zone_label_workspace" translatable="false">Remove</string>
+    <string name="dream_name" translatable="false">Rocket Launcher</string>
+    <string name="dummy_custom_cling_error_message" translatable="false">Error: custom workspace layout passed in but custom cling was not overwritten</string>
+    <string name="external_drop_widget_error" translatable="false">Couldn\'t drop item on this Home screen.</string>
     <string name="external_drop_widget_pick_format" translatable="false">%1$s (%2$d \u00d7 %3$d)</string>
-    <string name="external_drop_widget_pick_title">Choose widget to create</string>
-    <string name="first_run_cling_create_screens_hint">Create more screens for apps and folders</string>
-    <string name="first_run_cling_custom_content_hint"/>
-    <string name="first_run_cling_description">Make yourself at home.</string>
-    <string name="first_run_cling_search_bar_hint"/>
-    <string name="first_run_cling_title">Welcome</string>
-    <string name="folder_cling_create_folder">To create one like this, touch &amp; hold an app, then move it over another.</string>
-    <string name="folder_cling_title">Here\'s a folder</string>
-    <string name="folder_closed">Folder closed</string>
-    <string name="folder_hint_text">Unnamed Folder</string>
-    <string name="folder_name"/>
-    <string name="folder_name_format">Folder: <ns1:g example="Games" id="name">%1$s</ns1:g></string>
-    <string name="folder_opened">Folder opened, <ns1:g example="5" id="width">%1$d</ns1:g> by <ns1:g example="3" id="height">%2$d</ns1:g></string>
-    <string name="folder_renamed">Folder renamed to <ns1:g example="Games" id="name">%1$s</ns1:g></string>
-    <string name="folder_tap_to_close">Touch to close folder</string>
-    <string name="folder_tap_to_rename">Touch to save rename</string>
-    <string name="gadget_error_text">Problem loading widget</string>
-    <string name="gadget_setup_text">Setup</string>
+    <string name="external_drop_widget_pick_title" translatable="false">Choose widget to create</string>
+    <string name="first_run_cling_create_screens_hint" translatable="false">Create more screens for apps and folders</string>
+    <string name="first_run_cling_custom_content_hint" translatable="false"/>
+    <string name="first_run_cling_description" translatable="false">Make yourself at home.</string>
+    <string name="first_run_cling_search_bar_hint" translatable="false"/>
+    <string name="first_run_cling_title" translatable="false">Welcome</string>
+    <string name="folder_cling_create_folder" translatable="false">To create one like this, touch &amp; hold an app, then move it over another.</string>
+    <string name="folder_cling_title" translatable="false">Here\'s a folder</string>
+    <string name="folder_closed" translatable="false">Folder closed</string>
+    <string name="folder_hint_text" translatable="false">Unnamed Folder</string>
+    <string name="folder_name" translatable="false"/>
+    <string name="folder_name_format" translatable="false">Folder: <ns1:g example="Games" id="name">%1$s</ns1:g></string>
+    <string name="folder_opened" translatable="false">Folder opened, <ns1:g example="5" id="width">%1$d</ns1:g> by <ns1:g example="3" id="height">%2$d</ns1:g></string>
+    <string name="folder_renamed" translatable="false">Folder renamed to <ns1:g example="Games" id="name">%1$s</ns1:g></string>
+    <string name="folder_tap_to_close" translatable="false">Touch to close folder</string>
+    <string name="folder_tap_to_rename" translatable="false">Touch to save rename</string>
+    <string name="gadget_error_text" translatable="false">Problem loading widget</string>
+    <string name="gadget_setup_text" translatable="false">Setup</string>
     <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values/custom_strings.xml -->
     <eat-comment/>
     <string name="google_title" translatable="false">Google</string>
     <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="group_applications">Apps</string>
-    <string name="group_shortcuts">Shortcuts</string>
-    <string name="group_widgets">Widgets</string>
+    <string name="group_applications" translatable="false">Apps</string>
+    <string name="group_shortcuts" translatable="false">Shortcuts</string>
+    <string name="group_widgets" translatable="false">Widgets</string>
     <string name="help_url" translatable="false"/>
-    <string name="home">Home</string>
-    <string name="hotseat_out_of_space">No more room in the Favorites tray</string>
-    <string name="image_load_fail">Coudn\'t load image</string>
-    <string name="info_target_label">App info</string>
-    <string name="invalid_hotseat_item">This widget is too large for the Favorites tray</string>
-    <string name="long_press_widget_to_add">Touch &amp; hold to pick up a widget.</string>
-    <string name="menu_item_add_item">Add to Home screen</string>
-    <string name="migration_cling_copy_apps">COPY ICONS</string>
-    <string name="migration_cling_description">Import icons and folders from your old Home screens?</string>
-    <string name="migration_cling_title">Copy your app icons</string>
-    <string name="migration_cling_use_default">START FRESH</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="hotseat_out_of_space" translatable="false">No more room in the Favorites tray</string>
+    <string name="image_load_fail" translatable="false">Coudn\'t load image</string>
+    <string name="info_target_label" translatable="false">App info</string>
+    <string name="invalid_hotseat_item" translatable="false">This widget is too large for the Favorites tray</string>
+    <string name="long_press_widget_to_add" translatable="false">Touch &amp; hold to pick up a widget.</string>
+    <string name="menu_item_add_item" translatable="false">Add to Home screen</string>
+    <string name="migration_cling_copy_apps" translatable="false">COPY ICONS</string>
+    <string name="migration_cling_description" translatable="false">Import icons and folders from your old Home screens?</string>
+    <string name="migration_cling_title" translatable="false">Copy your app icons</string>
+    <string name="migration_cling_use_default" translatable="false">START FRESH</string>
     <string name="old_launcher_provider_uri" translatable="false">content://com.android.launcher2.settings/favorites?notify=true</string>
-    <string name="out_of_space">No more room on this Home screen.</string>
-    <string name="package_state_downloading">Downloading</string>
-    <string name="package_state_enqueued">Waiting</string>
-    <string name="package_state_error">Not restored</string>
-    <string name="package_state_installing">Installing</string>
-    <string name="package_state_unknown">Unknown</string>
-    <string name="permdesc_install_shortcut">Allows an app to add
+    <string name="out_of_space" translatable="false">No more room on this Home screen.</string>
+    <string name="package_state_downloading" translatable="false">Downloading</string>
+    <string name="package_state_enqueued" translatable="false">Waiting</string>
+    <string name="package_state_error" translatable="false">Not restored</string>
+    <string name="package_state_installing" translatable="false">Installing</string>
+    <string name="package_state_unknown" translatable="false">Unknown</string>
+    <string name="permdesc_install_shortcut" translatable="false">Allows an app to add
         shortcuts without user intervention.</string>
-    <string name="permdesc_read_settings">Allows the app to read the settings and
+    <string name="permdesc_read_settings" translatable="false">Allows the app to read the settings and
         shortcuts in Home.</string>
-    <string name="permdesc_uninstall_shortcut">Allows the app to remove
+    <string name="permdesc_uninstall_shortcut" translatable="false">Allows the app to remove
         shortcuts without user intervention.</string>
-    <string name="permdesc_write_settings">Allows the app to change the settings and
+    <string name="permdesc_write_settings" translatable="false">Allows the app to change the settings and
         shortcuts in Home.</string>
-    <string name="permlab_install_shortcut">install shortcuts</string>
-    <string name="permlab_read_settings">read Home settings and shortcuts</string>
-    <string name="permlab_uninstall_shortcut">uninstall shortcuts</string>
-    <string name="permlab_write_settings">write Home settings and shortcuts</string>
-    <string name="pick_image">Pick image</string>
-    <string name="pick_wallpaper">Wallpapers</string>
+    <string name="permlab_install_shortcut" translatable="false">install shortcuts</string>
+    <string name="permlab_read_settings" translatable="false">read Home settings and shortcuts</string>
+    <string name="permlab_uninstall_shortcut" translatable="false">uninstall shortcuts</string>
+    <string name="permlab_write_settings" translatable="false">write Home settings and shortcuts</string>
+    <string name="pick_image" translatable="false">Pick image</string>
+    <string name="pick_wallpaper" translatable="false">Wallpapers</string>
     <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values/custom_strings.xml -->
     <eat-comment/>
-    <string name="pref_title_default_workspace">Default Screen</string>
-    <string name="pref_title_show_search_bar">Show Search Bar</string>
-    <string name="pref_title_workspace_cols">Columns</string>
-    <string name="pref_title_workspace_rows">Rows</string>
-    <string name="pref_workspace_title">Workspace settings</string>
+    <string name="pref_title_default_workspace" translatable="false">Default Screen</string>
+    <string name="pref_title_show_search_bar" translatable="false">Show Search Bar</string>
+    <string name="pref_title_workspace_cols" translatable="false">Columns</string>
+    <string name="pref_title_workspace_rows" translatable="false">Rows</string>
+    <string name="pref_workspace_title" translatable="false">Workspace settings</string>
     <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="receive_first_load_broadcast_permission" translatable="false">com.android.launcher3.permission.RECEIVE_FIRST_LOAD_BROADCAST</string>
     <string name="receive_launch_broadcasts_permission" translatable="false">com.android.launcher3.permission.RECEIVE_LAUNCH_BROADCASTS</string>
-    <string name="rename_action">OK</string>
-    <string name="rename_folder_label">Folder name</string>
-    <string name="rename_folder_title">Rename folder</string>
-    <string name="safemode_shortcut_error">Downloaded app disabled in Safe mode</string>
-    <string name="safemode_widget_error">Widgets disabled in Safe mode</string>
-    <string name="settings_button_text">Settings</string>
-    <string name="shortcut_duplicate">Shortcut \"<ns1:g example="Browser" id="name">%s</ns1:g>\" already exists.</string>
-    <string name="shortcut_installed">Shortcut \"<ns1:g example="Browser" id="name">%s</ns1:g>\" created.</string>
-    <string name="shortcut_uninstalled">Shortcut \"<ns1:g example="Browser" id="name">%s</ns1:g>\" was removed.</string>
-    <string name="title_select_application">Choose app</string>
-    <string name="title_select_shortcut">Choose shortcut</string>
-    <string name="toggle_weight_watcher">Show Mem</string>
-    <string name="uid_name">Android Core Apps</string>
-    <string name="uninstall_system_app_text">This is a system app and can\'t be uninstalled.</string>
-    <string name="wallpaper_accessibility_name">Wallpaper %1$d of %2$d</string>
-    <string name="wallpaper_button_text">Wallpapers</string>
-    <string name="wallpaper_delete">Delete</string>
-    <string name="wallpaper_instructions">Set wallpaper</string>
-    <string name="wallpaper_load_fail">Couldn\'t load image as wallpaper</string>
-    <string name="widget_adder">Widgets</string>
-    <string name="widget_button_text">Widgets</string>
-    <string name="widget_dims_format">%1$d \u00d7 %2$d</string>
-    <string name="widgets_tab_label">Widgets</string>
-    <string name="workspace_cling_longpress_description">Touch &amp; hold background to customize</string>
-    <string name="workspace_cling_longpress_dismiss">GOT IT</string>
-    <string name="workspace_cling_longpress_title">Wallpapers, widgets, &amp; settings</string>
-    <string name="workspace_cling_move_item">Touch &amp; hold background to manage wallpaper, widgets and settings.</string>
-    <string name="workspace_cling_title">Organize your space</string>
-    <string name="workspace_description_format">Home screen %1$d</string>
-    <string name="workspace_scroll_format">Home screen %1$d of %2$d</string>
+    <string name="rename_action" translatable="false">OK</string>
+    <string name="rename_folder_label" translatable="false">Folder name</string>
+    <string name="rename_folder_title" translatable="false">Rename folder</string>
+    <string name="safemode_shortcut_error" translatable="false">Downloaded app disabled in Safe mode</string>
+    <string name="safemode_widget_error" translatable="false">Widgets disabled in Safe mode</string>
+    <string name="settings_button_text" translatable="false">Settings</string>
+    <string name="shortcut_duplicate" translatable="false">Shortcut \"<ns1:g example="Browser" id="name">%s</ns1:g>\" already exists.</string>
+    <string name="shortcut_installed" translatable="false">Shortcut \"<ns1:g example="Browser" id="name">%s</ns1:g>\" created.</string>
+    <string name="shortcut_uninstalled" translatable="false">Shortcut \"<ns1:g example="Browser" id="name">%s</ns1:g>\" was removed.</string>
+    <string name="title_select_application" translatable="false">Choose app</string>
+    <string name="title_select_shortcut" translatable="false">Choose shortcut</string>
+    <string name="toggle_weight_watcher" translatable="false">Show Mem</string>
+    <string name="uid_name" translatable="false">Android Core Apps</string>
+    <string name="uninstall_system_app_text" translatable="false">This is a system app and can\'t be uninstalled.</string>
+    <string name="wallpaper_accessibility_name" translatable="false">Wallpaper %1$d of %2$d</string>
+    <string name="wallpaper_button_text" translatable="false">Wallpapers</string>
+    <string name="wallpaper_delete" translatable="false">Delete</string>
+    <string name="wallpaper_instructions" translatable="false">Set wallpaper</string>
+    <string name="wallpaper_load_fail" translatable="false">Couldn\'t load image as wallpaper</string>
+    <string name="widget_adder" translatable="false">Widgets</string>
+    <string name="widget_button_text" translatable="false">Widgets</string>
+    <string name="widget_dims_format" translatable="false">%1$d \u00d7 %2$d</string>
+    <string name="widgets_tab_label" translatable="false">Widgets</string>
+    <string name="workspace_cling_longpress_description" translatable="false">Touch &amp; hold background to customize</string>
+    <string name="workspace_cling_longpress_dismiss" translatable="false">GOT IT</string>
+    <string name="workspace_cling_longpress_title" translatable="false">Wallpapers, widgets, &amp; settings</string>
+    <string name="workspace_cling_move_item" translatable="false">Touch &amp; hold background to manage wallpaper, widgets and settings.</string>
+    <string name="workspace_cling_title" translatable="false">Organize your space</string>
+    <string name="workspace_description_format" translatable="false">Home screen %1$d</string>
+    <string name="workspace_scroll_format" translatable="false">Home screen %1$d of %2$d</string>
     <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="ActionBarSetWallpaperStyle" parent="@android:style/Widget.DeviceDefault.ActionButton">
         <item name="android:textColor">#ffffffff</item>
     </style>
-    <style name="DropTargetButton" parent="DropTargetButton.Base"/>
+    <style name="DropTargetButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">7.5dp</item>
+        <item name="android:paddingLeft">25dp</item>
+        <item name="android:paddingRight">25dp</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textSize">@dimen/drop_target_text_size</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:shadowColor">#FF000000</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">4.0</item>
+    </style>
     <style name="DropTargetButton.Base">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
@@ -367,7 +384,7 @@
     </style>
     <style name="WorkspaceIcon.AppsCustomize">
         <item name="android:background">@null</item>
-        <item name="android:textColor">@color/quantum_panel_text_color</item>
+        <item name="android:textColor">@color/workspace_icon_text_color</item>
         <item name="android:drawablePadding">@dimen/dynamic_grid_icon_drawable_padding</item>
         <item name="android:shadowRadius">0</item>
         <item name="customShadows">false</item>

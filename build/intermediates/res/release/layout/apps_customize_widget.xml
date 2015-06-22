@@ -21,8 +21,6 @@
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:orientation="vertical"
-
-    android:background="@drawable/focusable_view_bg"
     android:focusable="true">
 
     <LinearLayout
@@ -30,12 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
-        <FrameLayout
-            android:id="@+id/left_border"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/widget_text_panel"
-            android:visibility="gone" />
 
         <!-- The preview of the widget or shortcut. -->
         <com.android.launcher3.PagedViewWidgetImageView
@@ -48,12 +40,6 @@
             android:paddingEnd="@dimen/app_widget_preview_padding_right"
             android:paddingRight="@dimen/app_widget_preview_padding_right"
             android:scaleType="matrix" />
-        <FrameLayout
-            android:id="@+id/right_border"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/widget_text_panel"
-            android:visibility="gone" />
     </LinearLayout>
 
     <LinearLayout
@@ -63,7 +49,6 @@
         android:paddingBottom="@dimen/app_widget_preview_label_vertical_padding"
         android:paddingLeft="@dimen/app_widget_preview_label_horizontal_padding"
         android:paddingRight="@dimen/app_widget_preview_label_horizontal_padding"
-        android:background="@color/widget_text_panel"
         android:orientation="horizontal">
         <!-- The name of the widget. -->
         <TextView
@@ -79,9 +64,7 @@
             android:textColor="#FFFFFFFF"
             android:textSize="12sp"
             android:textAlignment="viewStart"
-            android:fontFamily="sans-serif-condensed"
-            android:shadowRadius="2.0"
-            android:shadowColor="#B0000000" />
+            android:fontFamily="sans-serif-condensed" />
 
         <!-- The original dimensions of the widget (can't be the same text as above due to different
              style. -->
@@ -96,9 +79,7 @@
 
             android:textColor="#FFFFFFFF"
             android:textSize="12sp"
-            android:fontFamily="sans-serif-condensed"
-            android:shadowRadius="2.0"
-            android:shadowColor="#B0000000" />
+            android:fontFamily="sans-serif-condensed" />
     </LinearLayout>
 
 

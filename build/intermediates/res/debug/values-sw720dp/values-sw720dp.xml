@@ -21,13 +21,23 @@
     <integer name="config_workspaceSpringLoadShrinkPercentage">90</integer>
     <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values-sw720dp/styles.xml -->
     <eat-comment/>
-    <style name="DropTargetButton" parent="DropTargetButton.Base">
+    <style name="DropTargetButton">
         <item name="android:paddingLeft">60dp</item>
         <item name="android:paddingRight">60dp</item>
         <item name="android:shadowColor">#393939</item>
         <item name="android:shadowDx">0.0</item>
         <item name="android:shadowDy">0.0</item>
         <item name="android:shadowRadius">2.0</item>
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">7.5dp</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textSize">@dimen/drop_target_text_size</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
     </style>
     <style name="DropTargetButtonContainer">
         <item name="android:layout_width">0dp</item>
