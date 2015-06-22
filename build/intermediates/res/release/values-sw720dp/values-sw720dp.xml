@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values-sw720dp/config.xml -->
+    <eat-comment/>
+    <bool name="config_largeHeap">true</bool>
+    <bool name="config_useDropTargetDownTransition">false</bool>
+    <bool name="hotseat_transpose_layout_with_orientation">false</bool>
+    <bool name="is_large_tablet">true</bool>
+    <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values-sw720dp/dimens.xml -->
+    <eat-comment/>
+    <dimen name="app_icon_size">72dp</dimen>
+    <dimen name="cling_migration_content_margin">96dp</dimen>
+    <dimen name="cling_migration_content_width">320dp</dimen>
+    <dimen name="dragViewOffsetX">0dp</dimen>
+    <dimen name="dragViewOffsetY">0dp</dimen>
+    <dimen name="toolbar_button_horizontal_padding">8dip</dimen>
+    <dimen name="toolbar_button_vertical_padding">8dip</dimen>
+    <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values-sw720dp/config.xml -->
+    <eat-comment/>
+    <integer name="config_cameraDistance">18000</integer>
+    <integer name="config_workspaceSpringLoadShrinkPercentage">90</integer>
+    <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values-sw720dp/styles.xml -->
+    <eat-comment/>
+    <style name="DropTargetButton">
+        <item name="android:paddingLeft">60dp</item>
+        <item name="android:paddingRight">60dp</item>
+        <item name="android:shadowColor">#393939</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">2.0</item>
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">7.5dp</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textSize">@dimen/drop_target_text_size</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="DropTargetButtonContainer">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="SearchButton"/>
+</resources>

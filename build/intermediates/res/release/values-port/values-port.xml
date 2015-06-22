@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values-port/dimens.xml -->
+    <eat-comment/>
+    <integer name="apps_customize_widget_cell_count_x">2</integer>
+    <integer name="apps_customize_widget_cell_count_y">3</integer>
+</resources>

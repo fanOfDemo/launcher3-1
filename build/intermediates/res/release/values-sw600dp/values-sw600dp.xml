@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values-sw600dp/config.xml -->
+    <eat-comment/>
+    <bool name="allow_rotation">true</bool>
+    <bool name="is_tablet">true</bool>
+    <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values-sw600dp/dimens.xml -->
+    <eat-comment/>
+    <dimen name="app_icon_size">64dp</dimen>
+    <dimen name="app_widget_preview_label_margin_left">@dimen/app_widget_preview_padding_left</dimen>
+    <dimen name="app_widget_preview_label_margin_right">@dimen/app_widget_preview_padding_right</dimen>
+    <dimen name="app_widget_preview_label_margin_top">8dp</dimen>
+    <dimen name="apps_customize_tab_bar_height">60dp</dimen>
+    <dimen name="apps_customize_tab_bar_margin_top">8dp</dimen>
+    <dimen name="cling_migration_bg_shift">-300dp</dimen>
+    <dimen name="cling_migration_bg_size">600dp</dimen>
+    <dimen name="cling_migration_content_margin">64dp</dimen>
+    <dimen name="cling_migration_content_width">280dp</dimen>
+    <dimen name="cling_migration_logo_height">400dp</dimen>
+    <dimen name="cling_migration_logo_width">274dp</dimen>
+    <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values-sw600dp/config.xml -->
+    <eat-comment/>
+    <integer name="config_cameraDistance">14000</integer>
+    <integer name="config_flingToDeleteMinVelocity">-1000</integer>
+</resources>

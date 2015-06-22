@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/rharshit/StudioProjects/Launcher3/app/src/main/res/values-v17/styles.xml -->
+    <eat-comment/>
+    <style name="PagedViewWidgetImageView">
+        <item name="android:paddingStart">@dimen/app_widget_preview_padding_left</item>
+    </style>
+</resources>
