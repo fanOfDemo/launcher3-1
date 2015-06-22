@@ -53,10 +53,12 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -69,6 +71,10 @@ import android.os.StrictMode;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.renderscript.Allocation;
+import android.renderscript.Element;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
 import android.speech.RecognizerIntent;
 import android.text.Selection;
 import android.text.SpannableStringBuilder;
@@ -99,6 +105,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Advanceable;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.launcher3.DropTarget.DragObject;
@@ -354,6 +361,8 @@ public class Launcher extends Activity
     private Rect mRectForFolderAnimation = new Rect();
 
     private BubbleTextView mWaitingForResume;
+
+    private Bitmap temp_blur;
 
     private Runnable mBuildLayersRunnable = new Runnable() {
         public void run() {
@@ -2649,14 +2658,50 @@ public class Launcher extends Activity
      */
     protected void onClickAllAppsButton(View v) {
         if (LOGD) Log.d(TAG, "onClickAllAppsButton");
+        View temp = getWindow().getDecorView().getRootView();
+        temp.setDrawingCacheEnabled(true);
+        Bitmap bg = Bitmap.createBitmap(temp.getDrawingCache());
+        temp.setDrawingCacheEnabled(false);
+        Bitmap temp_bg = bg;
+        Blur(temp_bg);
+        if (temp_blur != null){
+            bg = temp_blur;
+        }
+
         if (isAllAppsVisible()) {
             showWorkspace(true);
         } else {
-            showAllApps(true, AppsCustomizePagedView.ContentType.Applications, false);
+            showAllApps(true, AppsCustomizePagedView.ContentType.Applications, false, bg);
         }
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onClickAllAppsButton(v);
         }
+    }
+
+    private void Blur(Bitmap bmp) {
+        try
+        {
+            RenderScript  rsScript = RenderScript.create(getApplicationContext());
+            Allocation alloc = Allocation.createFromBitmap(rsScript, bmp);
+
+            ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(rsScript, Element.U8_4(rsScript));
+            blur.setRadius(10);
+            blur.setInput(alloc);
+
+            temp_blur = Bitmap.createBitmap(bmp.getWidth(), bmp.getHeight(), Bitmap.Config.ARGB_8888);
+            Allocation outAlloc = Allocation.createFromBitmap(rsScript, temp_blur);
+
+            blur.forEach(outAlloc);
+            outAlloc.copyTo(temp_blur);
+
+            rsScript.destroy();
+
+        }
+        catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+
     }
 
     private void showBrokenAppInstallDialog(final String packageName,
@@ -2820,10 +2865,20 @@ public class Launcher extends Activity
      */
     protected void onClickAddWidgetButton(View view) {
         if (LOGD) Log.d(TAG, "onClickAddWidgetButton");
+        View temp = getWindow().getDecorView().getRootView();
+        temp.setDrawingCacheEnabled(true);
+        Bitmap bg = Bitmap.createBitmap(temp.getDrawingCache());
+        temp.setDrawingCacheEnabled(false);
+        Bitmap temp_bg = bg;
+        Blur(temp_bg);
+        if (temp_blur != null){
+            bg = temp_blur;
+        }
+
         if (mIsSafeModeEnabled) {
             Toast.makeText(this, R.string.safemode_widget_error, Toast.LENGTH_SHORT).show();
         } else {
-            showAllApps(true, AppsCustomizePagedView.ContentType.Widgets, true);
+            showAllApps(true, AppsCustomizePagedView.ContentType.Widgets, true, bg);
             if (mLauncherCallbacks != null) {
                 mLauncherCallbacks.onClickAddWidgetButton(view);
             }
@@ -3347,12 +3402,19 @@ public class Launcher extends Activity
      * of the screen.
      */
     private void showAppsCustomizeHelper(final boolean animated, final boolean springLoaded) {
+        Drawable blank_d = getResources().getDrawable(R.drawable.quantum_panel_blur);
+        Bitmap blank_b = ((BitmapDrawable)blank_d).getBitmap();
         AppsCustomizePagedView.ContentType contentType = mAppsCustomizeContent.getContentType();
-        showAppsCustomizeHelper(animated, springLoaded, contentType);
+        showAppsCustomizeHelper(animated, springLoaded, contentType, blank_b);
+    }
+
+    private void showAppsCustomizeHelper(final boolean animated, final boolean springLoaded, Bitmap bg) {
+        AppsCustomizePagedView.ContentType contentType = mAppsCustomizeContent.getContentType();
+        showAppsCustomizeHelper(animated, springLoaded, contentType, bg);
     }
 
     private void showAppsCustomizeHelper(final boolean animated, final boolean springLoaded,
-                                         final AppsCustomizePagedView.ContentType contentType) {
+                                         final AppsCustomizePagedView.ContentType contentType, Bitmap bg) {
         if (mStateAnimation != null) {
             mStateAnimation.setDuration(0);
             mStateAnimation.cancel();
@@ -3388,6 +3450,10 @@ public class Launcher extends Activity
         // If for some reason our views aren't initialized, don't animate
         boolean initialized = getAllAppsButton() != null;
 
+        Drawable blur_d = new BitmapDrawable(bg);
+        View blur_bg = findViewById(R.id.blur_bg);
+        blur_bg.setBackground(blur_d);
+
         if (animated && initialized) {
             mStateAnimation = LauncherAnimUtils.createAnimatorSet();
             final AppsCustomizePagedView content = (AppsCustomizePagedView)
@@ -3397,11 +3463,12 @@ public class Launcher extends Activity
             final View revealView = toView.findViewById(R.id.fake_page);
 
             final boolean isWidgetTray = contentType == AppsCustomizePagedView.ContentType.Widgets;
-            if (isWidgetTray) {
+            /*if (isWidgetTray) {
                 revealView.setBackground(res.getDrawable(R.drawable.quantum_panel_dark));
             } else {
                 revealView.setBackground(res.getDrawable(R.drawable.quantum_panel));
-            }
+            }*/
+            revealView.setBackground(res.getDrawable(R.drawable.quantum_panel_blur));
 
             // Hide the real page background, and swap in the fake one
             content.setPageBackgroundsVisible(false);
@@ -3486,7 +3553,7 @@ public class Launcher extends Activity
                 reveal.setDuration(revealDuration);
                 reveal.setInterpolator(new LogDecelerateInterpolator(100, 0));
 
-                reveal.addListener(new AnimatorListenerAdapter() {
+                /*reveal.addListener(new AnimatorListenerAdapter() {
                     public void onAnimationStart(Animator animation) {
                         if (!isWidgetTray) {
                             allApps.setVisibility(View.INVISIBLE);
@@ -3497,7 +3564,7 @@ public class Launcher extends Activity
                             allApps.setVisibility(View.VISIBLE);
                         }
                     }
-                });
+                });*/
                 mStateAnimation.play(reveal);
             }
 
@@ -3512,7 +3579,7 @@ public class Launcher extends Activity
                     if (page != null) {
                         page.setLayerType(View.LAYER_TYPE_NONE, null);
                     }
-                    content.setPageBackgroundsVisible(true);
+                    //content.setPageBackgroundsVisible(true);
 
                     // Hide the search bar
                     if (mSearchDropTargetBar != null) {
@@ -3650,11 +3717,12 @@ public class Launcher extends Activity
                 final boolean isWidgetTray =
                         contentType == AppsCustomizePagedView.ContentType.Widgets;
 
-                if (isWidgetTray) {
+                /*if (isWidgetTray) {
                     revealView.setBackground(res.getDrawable(R.drawable.quantum_panel_dark));
                 } else {
                     revealView.setBackground(res.getDrawable(R.drawable.quantum_panel));
-                }
+                }*/
+                revealView.setBackground(res.getDrawable(R.drawable.quantum_panel_blur));
 
                 int width = revealView.getMeasuredWidth();
                 int height = revealView.getMeasuredHeight();
@@ -3662,7 +3730,7 @@ public class Launcher extends Activity
 
                 // Hide the real page background, and swap in the fake one
                 revealView.setVisibility(View.VISIBLE);
-                content.setPageBackgroundsVisible(false);
+                //content.setPageBackgroundsVisible(false);
 
                 final View allAppsButton = getAllAppsButton();
                 revealView.setTranslationY(0);
@@ -3741,9 +3809,9 @@ public class Launcher extends Activity
                 width = revealView.getMeasuredWidth();
 
                 if (material) {
-                    if (!isWidgetTray) {
+                    /*if (!isWidgetTray) {
                         allAppsButton.setVisibility(View.INVISIBLE);
-                    }
+                    }*/
                     int allAppsButtonSize = LauncherAppState.getInstance().
                             getDynamicGrid().getDeviceProfile().allAppsButtonVisualSize;
                     float finalRadius = isWidgetTray ? 0 : allAppsButtonSize / 2;
@@ -3757,9 +3825,9 @@ public class Launcher extends Activity
                     reveal.addListener(new AnimatorListenerAdapter() {
                         public void onAnimationEnd(Animator animation) {
                             revealView.setVisibility(View.INVISIBLE);
-                            if (!isWidgetTray) {
+                            /*if (!isWidgetTray) {
                                 allAppsButton.setVisibility(View.VISIBLE);
-                            }
+                            }*/
                         }
                     });
 
@@ -3785,7 +3853,7 @@ public class Launcher extends Activity
                     if (page != null) {
                         page.setLayerType(View.LAYER_TYPE_NONE, null);
                     }
-                    content.setPageBackgroundsVisible(true);
+                    //content.setPageBackgroundsVisible(true);
                     // Unhide side pages
                     int count = content.getChildCount();
                     for (int i = 0; i < count; i++) {
@@ -3908,12 +3976,20 @@ public class Launcher extends Activity
 
     void showAllApps(boolean animated, AppsCustomizePagedView.ContentType contentType,
                      boolean resetPageToZero) {
+        Drawable blank_d = getResources().getDrawable(R.drawable.quantum_panel_blur);
+        Bitmap blank_b = ((BitmapDrawable)blank_d).getBitmap();
+        showAllApps(animated, contentType,resetPageToZero, blank_b);
+
+    }
+
+    void showAllApps(boolean animated, AppsCustomizePagedView.ContentType contentType,
+                     boolean resetPageToZero, Bitmap bg) {
         if (mState != State.WORKSPACE) return;
 
         if (resetPageToZero) {
             mAppsCustomizeTabHost.reset();
         }
-        showAppsCustomizeHelper(animated, false, contentType);
+        showAppsCustomizeHelper(animated, false, contentType, bg);
         mAppsCustomizeTabHost.post(new Runnable() {
             @Override
             public void run() {
