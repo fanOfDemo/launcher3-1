@@ -1003,11 +1003,11 @@ public class Launcher extends Activity
         super.onResume();
 
         // Restore the previous launcher state
-        if (mOnResumeState == State.WORKSPACE) {
+        /*if (mOnResumeState == State.WORKSPACE) {
             showWorkspace(false);
         } else if (mOnResumeState == State.APPS_CUSTOMIZE) {
             showAllApps(false, mAppsCustomizeContent.getContentType(), false);
-        }
+        }*/
         mOnResumeState = State.NONE;
 
         // Background was set to gradient in onPause(), restore to black if in all apps.
@@ -1108,6 +1108,7 @@ public class Launcher extends Activity
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onPause();
         }
+        showWorkspace(true);
     }
 
     public interface CustomContentCallbacks {
@@ -1711,7 +1712,7 @@ public class Launcher extends Activity
                 // Reset AllApps to its initial state only if we are not in the middle of
                 // processing a multi-step drop
                 if (mAppsCustomizeTabHost != null && mPendingAddInfo.container == ItemInfo.NO_ID) {
-                    showWorkspace(false);
+                    showWorkspace(true);
                 }
             } else if (Intent.ACTION_USER_PRESENT.equals(action)) {
                 mUserPresent = true;
@@ -3700,13 +3701,15 @@ public class Launcher extends Activity
         if (toState == Workspace.State.NORMAL) {
             workspaceAnim = mWorkspace.getChangeStateAnimation(
                     toState, animated, layerViews);
+            workspaceAnim.setDuration(250);
+            workspaceAnim.setInterpolator(new DecelerateInterpolator(1f));
         } else if (toState == Workspace.State.SPRING_LOADED ||
                 toState == Workspace.State.OVERVIEW) {
             workspaceAnim = mWorkspace.getChangeStateAnimation(
                     toState, animated, layerViews);
+            workspaceAnim.setDuration(250);
+            workspaceAnim.setInterpolator(new DecelerateInterpolator(1f));
         }
-        workspaceAnim.setDuration(500);
-        workspaceAnim.setInterpolator(new DecelerateInterpolator(1f));
 
         // If for some reason our views aren't initialized, don't animate
         boolean initialized = getAllAppsButton() != null;
@@ -3755,9 +3758,9 @@ public class Launcher extends Activity
                 //revealView.setVisibility(View.VISIBLE);
                 //content.setPageBackgroundsVisible(false);
 
-                final View allAppsButton = getAllAppsButton();
+                /*final View allAppsButton = getAllAppsButton();
                 revealView.setTranslationY(0);
-                /*int[] allAppsToPanelDelta = Utilities.getCenterDeltaInScreenSpace(revealView,
+                int[] allAppsToPanelDelta = Utilities.getCenterDeltaInScreenSpace(revealView,
                         allAppsButton, null);
 
                 float xDrift = 0;
@@ -3825,14 +3828,14 @@ public class Launcher extends Activity
                 pageIndicators.setAlpha(1f);
                 ObjectAnimator indicatorsAlpha =
                         LauncherAnimUtils.ofFloat(pageIndicators, "alpha", 0f);
-                indicatorsAlpha.setDuration(500);
+                indicatorsAlpha.setDuration(250);
                 indicatorsAlpha.setInterpolator(new DecelerateInterpolator(1f));
                 mStateAnimation.play(indicatorsAlpha);
 
                 width = revealView.getMeasuredWidth();
 
                 ObjectAnimator blurAlpha = ObjectAnimator.ofFloat(blur_bg, "alpha", 1f, 0f);
-                blurAlpha.setDuration(500);
+                blurAlpha.setDuration(250);
                 blurAlpha.setStartDelay(0);
                 blurAlpha.setInterpolator(new DecelerateInterpolator(1f));
                 mStateAnimation.play(blurAlpha);
